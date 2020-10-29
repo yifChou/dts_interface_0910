@@ -9,6 +9,8 @@ User: test
 passwd: 123456
 headers : {'Content-Type': 'application/json' }
 
+APIURL: http://dts.uat.yunexpress.com   #UAT
+#APIURL: http://192.168.88.175:5000      #DEV
 
 #配置数据库
 dbotsname: ots_db
