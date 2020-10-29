@@ -7,6 +7,7 @@ from utils.config import *
 from utils.excel_data import *
 import time,random
 from utils.log import *
+import yaml
 def now():
     return time.strftime("%Y-%m-%d %H:%M:%S")
 def ymd():
@@ -39,7 +40,12 @@ class OperationExcel:
 
     def getUrl(self,row):
         '''获取url'''
-        return self.get_row_cel(row,getUrl())
+        yml_str = r"D:\project\dts_interface_0910\config\config.yml"
+        f = open(yml_str, 'r', encoding='utf-8')
+        yml_data = yaml.load(f,Loader=yaml.FullLoader)
+        IP = yml_data["APIURL"]
+        print(IP)
+        return str(IP) + self.get_row_cel(row,getUrl())
 
     def get_request_data(self,row):
         '''获取请求参数'''
