@@ -56,7 +56,7 @@ def test_All(self,args):
             expect = self.obj.excel.getExcept(args)
             print("用例描述", description, "用例描述结束")
             print("期望", expect, "期望结束")
-            print("返回报文",r.text,"返回报文结束")
+            # print("返回报文",r.text,"返回报文结束")
             if self.obj.excel.getsql(args)!="":
                 '''执行sql操作，可以是多条sql'''
                 sqls = eval(self.obj.excel.getsql(args))
