@@ -1,7 +1,9 @@
-#!/user/bin/env python
 #coding:utf-8
 
 
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 import unittest
 from base.method import Method
 from utils.assertion import isIn
@@ -16,7 +18,7 @@ class test_AllInOne(unittest.TestCase):
         self.start = time.time()
     argsall = []
     # for i in range(0, 64):
-    for i in range(1,157):
+    for i in range(1,2):
        argsall.append(i)
     @data(*argsall)
     def test_AllInOne_001(self,args):
@@ -26,3 +28,5 @@ class test_AllInOne(unittest.TestCase):
         print("执行时间：%.4f"% run_time,"响应时间结束")
 if __name__ == '__main__':
     unittest.main(verbosity=2)
+# print(sys.path)
+# print(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
