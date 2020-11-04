@@ -40,7 +40,8 @@ class OperationExcel:
 
     def getUrl(self,row):
         '''获取url'''
-        yml_str = r"D:\project\dts_interface_0910\config\config.yml"
+        # yml_str = r"D:\project\dts_interface_0910\config\config.yml"
+        yml_str = os.path.dirname(os.path.dirname(__file__)) + r"\config\config.yml"
         f = open(yml_str, 'r', encoding='utf-8')
         yml_data = yaml.load(f,Loader=yaml.FullLoader)
         IP = yml_data["APIURL"]
