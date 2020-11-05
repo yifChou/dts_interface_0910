@@ -7,6 +7,7 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from utils.config import *
+from utils.email_error import email
 import HTMLTestRunner
 import shutil
 
@@ -45,7 +46,7 @@ def runInterface():
         stream=open(fp, 'wb'),
         title='自动化测试报告',
         description='自动化测试报告详细信息').run((allInterfaceTests()))
-
+    email(fp,"zhouyifu@yunexpress.com")
 # def runUi():
 #     fp = os.path.join(REPORT_PATH,getNowTime()+'testReport.html')
 #     HTMLTestRunner.HTMLTestRunner(
