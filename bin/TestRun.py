@@ -1,10 +1,13 @@
 #coding=utf-8
 
 import unittest
-import HTMLTestReportYIF
+# import HTMLTestReportYIF
 import time
-from utils.config import *
+import sys
 import os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+from utils.config import *
+import HTMLTestRunner
 import shutil
 
 def allInterfaceTests():
@@ -20,7 +23,7 @@ def allInterfaceTests():
 
 def allUiTests():
     suite =unittest.TestLoader().discover(
-        start_dir=os.path.join(os.path.dirname(os.path.dirname(__file__)),'tests'),
+        start_dir=os.path.join(os.path.dirname(os.path.dirname(__file__)),r'tests'),
         pattern='test_*.py',
         top_level_dir=None
     )
@@ -32,12 +35,13 @@ def getNowTime():
 def runInterface():
     #move_report()  # 把报告目录移动到report文件夹
     fp = os.path.join(REPORT_PATH,getNowTime()+'testReport.html')
+    print(fp)
     '''
     HTMLTestRunner.HTMLTestRunner(
         stream=open(fp,'wb'),
         title='自动化测试报告',
         description='自动化测试报告详细信息').run((allInterfaceTests()))'''
-    HTMLTestReportYIF.HTMLTestRunner(
+    HTMLTestRunner.HTMLTestRunner(
         stream=open(fp, 'wb'),
         title='自动化测试报告',
         description='自动化测试报告详细信息').run((allInterfaceTests()))
